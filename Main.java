@@ -16,7 +16,8 @@ public class Main {
             Hur
         */
 
-        PerfectNumber.isPerfect(23);
+        PerfectNumber.isPerfect(28);
+        PerfectNumber.perfectThousand();
         //PasswordCreator.passUI();
     }
 }
