@@ -16,8 +16,15 @@ public class Main {
             Hur
         */
 
-        PerfectNumber.isPerfect(28);
-        PerfectNumber.perfectThousand();
-        //PasswordCreator.passUI();
+        //PasswordCreator.passUI(); // 3. Soru
+        System.out.println("");
+        // 4. Soru
+        System.out.println("");
+        SumFactors.sumApp(24); // 5. Soru
+        System.out.println("");
+        AmicableNumbers.areFriends(220, 284); // 6. Soru
+        System.out.println("");
+        PerfectNumber.isPerfect(28); // 7. Soru a
+        PerfectNumber.perfectThousand(); // 7. Soru b
     }
 }

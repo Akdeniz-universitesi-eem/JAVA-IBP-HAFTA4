@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class AmicableNumbers {
     // 6. Soru
     /* 「SORU」
@@ -10,6 +12,14 @@ public class AmicableNumbers {
     */
 
     public static void areFriends(int num1, int num2) {
+        ArrayList<Integer> arr1 =  SumFactors.sumFactors(num1), arr2 =  SumFactors.sumFactors(num2);
+        int total1 = arrAddition(arr1), total2 = arrAddition(arr2);
+        System.out.println("Bu iki sayı (" + num1 + " ve " + num2 + ") arkadaş sayı" + (total1 == total2 ? "lardır!" : " değildir..."));
+    }
 
+    public static int arrAddition(ArrayList<Integer> arr) {
+        int total = 0;
+        for (int num: arr) total += total;
+        return total;
     }
 }
