@@ -11,24 +11,23 @@ public class PerfectNumber {
         b) 4 basamaklı tek bir mükemmel sayı vardır. Yazmış olduğunuz isPerfect metodunu kullanarak 4 basamaklı mükemmel sayıyı bulan programı yazınız.
     */
     /* 「AÇIKLAMA」
-        Hur
+        *"isPerfect" fonksiyonu kontrol edilmek sayıyı alır ve SumFactors sınıfındaki sumFactors fonksiyonunu kullanarak çarpanlarına ayırır ve arr arrayine kaydeder.
+        Eğer AmicableNumbers sınıfındaki arrAddition fonksiyonu ile toplanan çarpanlar, çarpanı oldukları sayıya eşitse mükemmel olduğu, eşit değilse mükemmel olmadığı
+        döndürülür.
+        * "perfectThousand" fonksiyonunun işlevi tek mükemmel dört basamanklı sayıyı bulmaktır. for döngüsü ile 1000'den başlanarak tüm dört basamaklı sayılar
+        değerlendirilir. SumFactors sınıfındaki sumFactors fonksiyonu kullanarak çarpanlara ayırma yapılır ve AmicableNumbers sınıfındaki arrAddition fonksiyonu ile toplanan
+        çarpanlar, dönen sayıya eşitse sayı yazılır.
     */
 
     public static void isPerfect(int num) {
         ArrayList<Integer> arr = SumFactors.sumApp(num);
-        System.out.println("Bu sayı, mükemmel bir sayı" + ((num == arrTotal(num, arr)) ? "dır!" : " değildir..."));
+        System.out.println("Bu sayı, mükemmel bir sayı" + ((num == AmicableNumbers.arrAddition(arr)) ? "dır!" : " değildir..."));
     }
 
     public static void perfectThousand() {
         for (int i = 1000; i <= 9999; i++) {
-            ArrayList<Integer> multiplierOfNum = SumFactors.sumFactors(i);
-            if (i == arrTotal(i, multiplierOfNum)) System.out.println("\n" + i + " mükemmel dört basamanklı sayıdır!");
+            ArrayList<Integer> arr = SumFactors.sumFactors(i);
+            if (i == AmicableNumbers.arrAddition(arr)) System.out.println("\n" + i + " tek mükemmel dört basamanklı sayıdır!");
         }
-    }
-
-    public static int arrTotal(int num, ArrayList<Integer> arr) {
-        int total = 0;
-        for (int nums: arr) total += nums;
-        return total;
     }
 }

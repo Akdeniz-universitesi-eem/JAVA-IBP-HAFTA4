@@ -10,7 +10,14 @@ public class PasswordCreator {
         * Boşluk olamaz
     */
     /* 「AÇIKLAMA」
-        Hur
+        * Şifre oluşturma işlemimiz "passCreatoe" fonksiyonu ile başlar. Uzunluk şartını sağlaması için rastgele 8 ile 85 arasında bir şifre uzunluğu belirlebir.
+        * Ardından while döngüsü ile şifre oluşturma işlemi başlar. Şifre çıktısı bir sorun çıkmaması için her döngü başında sıfırlanır. Şifreye ne tip bir
+        karakter (harfler için 1, sayılar için 2, özel karakterler için 3) girdiğimizi kaydetmek için şifre uzunluğunda bir array oluşturulur.
+        * While içindeki for döngüsüne girilir ve karakter tipini belirlemek için 1-2-3 arasından rastgele bir sayı seçilir (Görsel amaçlarla ilk karakter özel karakter olmayacak şekilde
+        ayarlanmıştır.) Tip seçildikten sonra tipi belirten sayı "checkArr"a eklenir ve "returnChar" fonksiyonuna tip ve geri almak istediğimiz String gönderilir.
+        * "returnChar" fonksiyonun başında karakter çeşitlerimiz vardır ve fonksiyonu çağırırken seçimimize göre kondisyon karakterlerini ayırırız ve şifre çıktısına ekleriz.
+        * Eğer checkArr tüm karakter çeşitlerini içeriyorsa (şartlarımızdan biri buydu) şifre çıkan pencrede yazılır. Şart sağlanmıyorsa sorun oluştuğu terminale yazılır ve şartları sağlayan
+        şifre oluşturulana kadar döngü devam eder.
     */
 
     public static void passUI() {
@@ -21,7 +28,7 @@ public class PasswordCreator {
     }
 
     public static String passCreator() {
-        int passwordLength = randomNum(8, 24);
+        int passwordLength = randomNum(8, 85);
         String passwordOutput = "";
         boolean flag = false;
         while (!flag) {
@@ -40,14 +47,12 @@ public class PasswordCreator {
 
     public static String returnChar(int selection, String text) {
         String[] condChars = {"abcdefghijklmnopqrstuvwxyz", "0123456789", "!@#$%^*()~'{}[]|\\&_", "ABCDEFGHIKJLMNOPRSTUVWXYZ"};
-        char[] alphabet = condChars[0].toCharArray();
-        char[] numbers = condChars[1].toCharArray();
-        char[] characters = condChars[2].toCharArray();
+        char[] temp = condChars[selection - 1].toCharArray();
 
         switch (selection) {
-            case 1 -> text += alphabet[randomNum(0, 25)];
-            case 2 -> text += numbers[randomNum(0, 9)];
-            case 3 -> text += characters[randomNum(0, 18)];
+            case 1 -> text += temp[randomNum(0, 25)];
+            case 2 -> text += temp[randomNum(0, 9)];
+            case 3 -> text += temp[randomNum(0, 18)];
         }
         return text;
     }

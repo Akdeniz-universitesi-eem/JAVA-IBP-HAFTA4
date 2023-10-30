@@ -8,18 +8,20 @@ public class AmicableNumbers {
         test eden areFriends metodunu yazınız. Metodunuzu dört basamaklı bir arkadaş sayı çifti bulan bir kodla test edebilirsiniz.
     */
     /* 「AÇIKLAMA」
-        Hur
+        * "areFriends" fonksyionu girilen iki integer değerini değerlendirerek arkadaş olup olmadıklarını değerlendirir. SumFactors sınıfındaki sumFactors fonksiyonunu kullanarak
+        iki sayı için çarpan arrayleri oluşturulur. Bu arrayler "arrAddition" fonksiyonu ile toplanırlar ve total değişkenleri ile kaydedilirler. Eğer ilk sayı, ikinci sayının çarpnları
+        toplamına eşitse VE ikinci sayı, ilk ayının çarpnları toplamına eşitse arkadaş sayı oldukları geri döner.
     */
 
     public static void areFriends(int num1, int num2) {
         ArrayList<Integer> arr1 =  SumFactors.sumFactors(num1), arr2 =  SumFactors.sumFactors(num2);
         int total1 = arrAddition(arr1), total2 = arrAddition(arr2);
-        System.out.println("Bu iki sayı (" + num1 + " ve " + num2 + ") arkadaş sayı" + (total1 == total2 ? "lardır!" : " değildir..."));
+        System.out.println("Bu iki sayı (" + num1 + " ve " + num2 + ") arkadaş sayı" + (num1 == total2 && num2 == total1 ? "lardır!" : " değildir..."));
     }
 
     public static int arrAddition(ArrayList<Integer> arr) {
         int total = 0;
-        for (int num: arr) total += total;
+        for (int num: arr) total += num;
         return total;
     }
 }

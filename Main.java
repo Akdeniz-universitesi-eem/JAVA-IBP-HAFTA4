@@ -18,7 +18,7 @@ public class Main {
 
         //PasswordCreator.passUI(); // 3. Soru
         System.out.println("");
-        // 4. Soru
+        SerialAddition.serialAddition(); // 4. Soru
         System.out.println("");
         SumFactors.sumApp(24); // 5. Soru
         System.out.println("");
