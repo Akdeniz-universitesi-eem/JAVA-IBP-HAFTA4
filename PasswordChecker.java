@@ -18,7 +18,7 @@ public class PasswordChecker {
      */
 
     public static void checkNew() {
-        String pass = "", checkIcon = new String(Character.toChars(0x2714)), crossIcon = new String(Character.toChars(0x2716));
+        String pass = "";
         ArrayList<String> arr = new ArrayList<>();
         List<String> condArr = Arrays.asList("abcdefghijklmnopqrstuvwxyz", "0123456789", "!@#$%^*()~'{}[]|\\&_");
         List<Integer> condTF = Arrays.asList(0, 0, 0, 0, 0, 0);
@@ -28,7 +28,7 @@ public class PasswordChecker {
 
         while (!flag){
             arr.clear();
-            pass = JOptionPane.showInputDialog(null, "Lütfen şifre giriniz:\n" + (condStatus[0] == 1 ? checkIcon : crossIcon) + " En az 8 karakter karakter olmalıdır\n" + (condStatus[1] == 1 ? checkIcon : crossIcon) + " 95 karakterden fazla olmamalıdır\n" + (condStatus[2] == 1 ? checkIcon : crossIcon) + " En az 1 tane harf içermelidir\n" + (condStatus[3] == 1 ? checkIcon : crossIcon) + " En az 1 tane rakam içermelidir\n" + (condStatus[4] == 1 ? checkIcon : crossIcon) + " En az 1 tane özel karakter (!@#$%^*()~'{}[]|\\&_) içermelidir\n" + (condStatus[5] == 1 ? checkIcon : crossIcon) + " Boşluk bulunmamalıdır\n","Şifre Oluşturma Paneli", JOptionPane.INFORMATION_MESSAGE);
+            pass = JOptionPane.showInputDialog(null, "Lütfen şifre giriniz:\n" + condPreview(condStatus),"Şifre Oluşturma Paneli", JOptionPane.INFORMATION_MESSAGE);
             passSplit = pass.split("");
             Collections.addAll(arr, passSplit);
 
@@ -41,10 +41,15 @@ public class PasswordChecker {
             if (!condTF.contains(0)) flag = true;
         }
         System.out.println(pass);
-        JOptionPane.showMessageDialog(null, "Şifre oluşturuldu:\n" + pass + "\n" + (condStatus[0] == 1 ? checkIcon : crossIcon) + " En az 8 karakter karakter olmalıdır\n" + (condStatus[1] == 1 ? checkIcon : crossIcon) + " 95 karakterden fazla olmamalıdır\n" + (condStatus[2] == 1 ? checkIcon : crossIcon) + " En az 1 tane harf içermelidir\n" + (condStatus[3] == 1 ? checkIcon : crossIcon) + " En az 1 tane rakam içermelidir\n" + (condStatus[4] == 1 ? checkIcon : crossIcon) + " En az 1 tane özel karakter (!@#$%^*()~'{}[]|\\&_) içermelidir\n" + (condStatus[5] == 1 ? checkIcon : crossIcon) + " Boşluk bulunmamalıdır\n", "Şifre Oluşturma Paneli", JOptionPane.INFORMATION_MESSAGE);}
+        JOptionPane.showMessageDialog(null, "Şifre oluşturuldu:\n" + pass + "\n" + condPreview(condStatus), "Şifre Oluşturma Paneli", JOptionPane.INFORMATION_MESSAGE);}
 
     public static boolean condCheck(ArrayList<String> arr,String[] condition) {
         for (String k: condition) if (arr.contains(k)) return true;
         return false;
+    }
+
+    public static String condPreview(int[] arr) {
+        String checkIcon = new String(Character.toChars(0x2714)), crossIcon = new String(Character.toChars(0x2716));
+        return (arr[0] == 1 ? checkIcon : crossIcon) + " " + "En az 8 karakter karakter olmalıdır\n" + (arr[1] == 1 ? checkIcon : crossIcon) + " 95 karakterden fazla olmamalıdır\n" + (arr[2] == 1 ? checkIcon : crossIcon) + " En az 1 tane harf içermelidir\n" + (arr[3] == 1 ? checkIcon : crossIcon) + " En az 1 tane rakam içermelidir\n" + (arr[4] == 1 ? checkIcon : crossIcon) + " En az 1 tane özel karakter (!@#$%^*()~'{}[]|\\&_) içermelidir\n" + (arr[5] == 1 ? checkIcon : crossIcon) + " Boşluk bulunmamalıdır\n";
     }
 }
