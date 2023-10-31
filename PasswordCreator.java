@@ -5,12 +5,12 @@ public class PasswordCreator {
     /* 「SORU」
         Tabloda herhangi bir programının şifre belirleme arayüzü verilmiştir. Aşağıdaki koşulları yerine şifre oluşturulması sağlayan
         java programını yazınız. ( Not: joptionpane.showinputdialog yapılarını kullanabilirsiniz.)
-        * En 8, en fazla 85 hane
+        * En 8, en fazla 95 hane
         * En az 1 harf, sayı ve özel karakter ( !@#$%^*()~'{}[]|\&_ ) içermeli
         * Boşluk olamaz
     */
     /* 「AÇIKLAMA」
-        * Şifre oluşturma işlemimiz "passCreatoe" fonksiyonu ile başlar. Uzunluk şartını sağlaması için rastgele 8 ile 85 arasında bir şifre uzunluğu belirlebir.
+        * Şifre oluşturma işlemimiz "passCreatoe" fonksiyonu ile başlar. Uzunluk şartını sağlaması için rastgele 8 ile 95 arasında bir şifre uzunluğu belirlebir.
         * Ardından while döngüsü ile şifre oluşturma işlemi başlar. Şifre çıktısı bir sorun çıkmaması için her döngü başında sıfırlanır. Şifreye ne tip bir
         karakter (harfler için 1, sayılar için 2, özel karakterler için 3) girdiğimizi kaydetmek için şifre uzunluğunda bir array oluşturulur.
         * While içindeki for döngüsüne girilir ve karakter tipini belirlemek için 1-2-3 arasından rastgele bir sayı seçilir (Görsel amaçlarla ilk karakter özel karakter olmayacak şekilde
@@ -28,7 +28,7 @@ public class PasswordCreator {
     }
 
     public static String passCreator() {
-        int passwordLength = randomNum(8, 85);
+        int passwordLength = randomNum(8, 95);
         String passwordOutput = "";
         boolean flag = false;
         while (!flag) {

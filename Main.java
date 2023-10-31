@@ -60,6 +60,7 @@ public class Main {
                Örneğin iki iş parçacağının ikisi de bir sayacı güvenle arttırabilir. Bu olanaklar diğer eşzamanlılık kalıplarına mekanizmaları uygulamak için de kullanılabilir.
         */
 
+        PasswordChecker.checkUI();;
         //PasswordCreator.passUI(); // 3. Soru
         System.out.println("");
         SerialAddition.serialAddition(); // 4. Soru
